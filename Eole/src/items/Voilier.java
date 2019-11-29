@@ -89,6 +89,14 @@ public class Voilier {
 		this.aAbandone = aAbandone;
 	}
 	
-	
+	/*
+	 * @override
+	 * @author Thomas
+	 */
+	public String toString() {
+		String res = "";
+		res = "voilier " + this.nom + " - rating (" + this.rating + ") - classe (" + this.classe + ").";
+		return res;
+	}
 
 }
