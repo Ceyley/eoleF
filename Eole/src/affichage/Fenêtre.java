@@ -8,7 +8,6 @@ package affichage;
  * je travaille
  * modificiation
  * Yolo
- * Merde
  */
 public class Fenêtre {
 	
