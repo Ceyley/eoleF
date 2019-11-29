@@ -66,13 +66,12 @@ public class Regate {
 	 * @param ajoute un voilier à la frégate 
 	 */
 	public void ajoutQueue(Voilier v) {
-		Voilier vNouv = new Voilier();
 		if(!estVide()) {
-			dernier.setSuivant(vNouv);
+			dernier.setSuivant(v);
 		}else {
-			premier = vNouv;
+			premier = v;
 		}	
-		dernier = vNouv;
+		dernier = v;
 	}
 	/**
 	 * @author jmunz
@@ -85,7 +84,7 @@ public class Regate {
 				while(v.getSuivant() != suppr && v.getSuivant() != dernier) {
 					v = v.getSuivant();
 				}
-				if (v == suppr){
+				if (v.getSuivant() == suppr){
 					v.setSuivant(v.getSuivant().getSuivant());
 				}
 			}else {
@@ -118,31 +117,6 @@ public class Regate {
 		premier = null;
 		dernier = null;
 	}
-	
-	public static void main(String []args) {
-		Voilier v1 = new Voilier();
-		Voilier v2 = new Voilier();
-		Voilier v3 = new Voilier();
-		Voilier v4 = new Voilier();
-		Voilier v5 = new Voilier();
-		Regate r = new Regate();
-		r.ajoutQueue(v1);
-		r.ajoutQueue(v2);
-		r.ajoutQueue(v3);
-		r.ajoutQueue(v4);
-		r.ajoutQueue(v5);
-		r.listerTout();
-		r.supprVoilier(v4);
-		r.listerTout();
-		r.supprVoilier(v1);
-		r.listerTout();
-		r.supprVoilier(v5);
-		r.listerTout();
-		r.vider();
-		r.listerTout();
-	}
-	
-	
 	
 	
 }
