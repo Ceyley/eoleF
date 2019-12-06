@@ -16,22 +16,23 @@ public class Classement {
 	public Classement() {
 		
 	}
-	/*
-	 * @author gatzenho
-	 * @param calcule le temps compensé par rapport au temps réel
+	/**.
+	 * @author jmunz
+	 * @author gatzenhoffer
+	 * @param calcule le temps compensÃ© par rapport au temps rÃ©el
 	 */
-	public void calculTps(int tpsReel) {
-		double hand = (5143 / Math.sqrt(36)) * 126;
+	public void calculTps(int tpsReel, double R, double dist) {
+		double hand = (5143 / (Math.sqrt(R) + 3.5)) * dist;
 		double tpsCompense;
 		
 		if(tpsReel == 0)
 			tpsCompense = 0;
 		else
-			tpsCompense = tpsReel + hand;
+			tpsCompense = tpsReel + Math.round(hand);
 	}
 	/**
 	 * @author jmunz
-	 * @return le classement général ou d'une classe
+	 * @return le classement gÃ©nÃ©ral ou d'une classe
 	 */
 	public ArrayList classement(int classe) {
 		return null;
