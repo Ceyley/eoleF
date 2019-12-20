@@ -1,6 +1,8 @@
 package eole;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,8 +14,13 @@ public class Fen_Classement extends JFrame implements ActionListener {
 	private JLabel lblClassement, lblPodium, lblTop1, lblTop2, lblTop3;
 	private JTable table;
 	
-	Object[][] donnees = {};
-	String[] entetes = {};
+	String[][] donnees = {{"test1", "salut", "je", "suis", "content"},
+						{"test2", "salut", "je", "suis", "content"},
+						{"test3", "salut", "je", "suis", "content"},
+						{"test4", "salut", "je", "suis", "content"},
+						{"test5", "salut", "je", "suis", "content"},
+						{"test6", "salut", "je", "suis", "content"}};
+	String[] entetes = {"Nom voilier", "je", "vais", "t'enculer", "fils de loutre"};
 	
 	String[] lstClass = {};
 	
@@ -49,18 +56,16 @@ public class Fen_Classement extends JFrame implements ActionListener {
 		panPodium.add(lblTop1);
 		panPodium.add(lblTop2);
 		panPodium.add(lblTop3);
-		lblTop1.setLocation(0, 0);
+		lblTop1.setBounds(0, 0, 32, 32);
 		lblTop2.setLocation(0, 100);
 		lblTop3.setLocation(50, 50);
 		panRightUp.add(panPodium, BorderLayout.WEST);
 		
-		// Panneau GAUCHE
-		panLeft.add(table);
-		panLeft.add(table.getTableHeader(), BorderLayout.NORTH);
-		panLeft.add(table, BorderLayout.CENTER);
-		
+		// Panneau GAUCHE		
 		panLeft.setLayout(new BorderLayout()); // Params du panel
+		panLeft.add(table.getTableHeader(), BorderLayout.NORTH);
 		panLeft.add(table);
+		table.getTableHeader().setReorderingAllowed(false);
 		
 		// Panneau DROIT
 		panRightUp.setLayout(new FlowLayout());
@@ -79,6 +84,7 @@ public class Fen_Classement extends JFrame implements ActionListener {
 		btnNouvRegate.addActionListener(this);
 		
 		panel.setLayout(new GridLayout());
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panel.add(panLeft);
 		panel.add(panRight);
 		
